@@ -1,5 +1,7 @@
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
@@ -9,8 +11,15 @@
     --brand-beige: hsl(39, 100%, 97%);
     --brand--light: hsl(148, 23%, 89%);
 
-
     font-size: 62.5%;
+
+    --nav-height: 7.2rem;
+}
+
+html,
+body{
+    width: 100%;
+    height: 100%;
 }
 
 body {
@@ -21,15 +30,38 @@ body {
     text-align: center;
 }
 
-header {
+.wrapper{
     width: 37.5rem;
 
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 4.1rem;
+    margin-inline: auto;
+    padding-inline: 2.4rem;
 }
 
-h4 {
+ul{
+    list-style: none;
+}
+
+header {
+    margin-top: calc(4.1rem + var(--nav-height));
+}
+
+header::before{
+    content: "";
+
+    width: 100%;
+    height: calc(108rem + var(--nav-height));
+
+    background-color: var(--brand--light);
+
+    display: block;
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+header h4 {
     font-size: 1.4rem;
 
     color: var(--primary-color);
@@ -37,7 +69,7 @@ h4 {
     margin-bottom: 1.6rem;
 }
 
-h1 {
+header h1 {
     font-size: 3.4rem;
 
     color: var(--headline);
@@ -47,7 +79,7 @@ h1 {
     margin-bottom: 2.4rem;
 }
 
-p {
+header p {
     font-size: 1.8rem;
 
     line-height: 150%;
@@ -58,7 +90,7 @@ p {
     margin-bottom: 3.2rem;
 }
 
-button {
+header button {
     background: var(--primary-color);
     color: white;
 
@@ -82,6 +114,14 @@ button {
 
     margin-right: auto;
     margin-left: auto;
+}
+
+header img{
+    width: 26.4rem;
+
+    display: block;
+    margin-inline: auto;
+    object-position: 0 2rem;
 }
 
 .stats {
@@ -119,26 +159,134 @@ button {
     line-height: 150%;
 }
 
-header img{
-    width: 26.4rem;
+nav{
+    display: flex;   
 
-    display: block;
-    margin-inline: auto;
-    object-position: 0 2rem;
+    height: var(--nav-height);
+
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-header::before{
-    content: "";
+nav .wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
 
+nav.scroll{
+    background: var(--primary-color);
     width: 100vw;
-    height: 108rem;
+}
 
-    background-color: var(--brand--light);
+nav.scroll svg:nth-child(1) path{
+    fill: white;
+}
 
-    display: block;
-    position: absolute;
+nav.scroll button path{
+    stroke  : white;
+}
 
+nav button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu, .close-menu, body.menu-expanded .open-menu{
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* MENU-EXPANDED */
+
+body.menu-expanded{
+    overflow: hidden;
+}
+
+body.menu-expanded > :not(nav) {
+    display: none;
+}
+
+body.menu-expanded .menu,
+.menu, .close-menu{
+    opacity: 1;
+    visibility: visible;
+}
+
+body.menu-expanded .menu{
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: -1;
+    background-color: var(--primary-color);
+
+    width: 100vw;
+    height: 100vh;
+
+    padding-top: var(--nav-height);
 }
+
+body.menu-expanded nav{
+    position: relative;
+}
+
+.menu ul:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    
+    margin-top: 6rem;
+    gap: 4.8rem;
+
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 3.1rem;
+}
+
+.menu ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+.menu .button{
+    background: white;
+    color: var(--primary-color);
+
+    border-radius: 4rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+
+    margin-top: 4.8rem;
+    margin-bottom: 8rem;
+    padding: 1.6rem 3.2rem;
+}
+
+.social-links{
+    display: flex;
+    gap: 3.2rem;
+
+    justify-content: center;
+    align-items: center;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded button
+{
+    position: relative;
+    z-index: 100;
+}
+
+body.menu-expanded .logo path{
+    fill: white;
+}
+
+body.menu-expanded button path{
+    stroke  : white;
+}
+
