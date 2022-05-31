@@ -19,3 +19,7 @@ openMenu.addEventListener('click', () => {
 closeMenu.addEventListener('click', () => {
     document.body.classList.remove('menu-expanded')
 })
+
+function closeMenuFunction(){
+    document.body.classList.remove('menu-expanded')
+}
