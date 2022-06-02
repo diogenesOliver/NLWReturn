@@ -180,10 +180,9 @@ nav{
 
     position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
 
     z-index: 100;
+    width: 100vw;
 }
 
 nav .wrapper{
@@ -194,10 +193,9 @@ nav .wrapper{
 
 nav.scroll{
     background: var(--primary-color);
-    width: 100vw;
 }
 
-nav.scroll svg:nth-child(1) path{
+nav.scroll .logo path{
     fill: white;
 }
 
@@ -223,7 +221,7 @@ body.menu-expanded{
 }
 
 body.menu-expanded > :not(nav) {
-    display: none;
+    visibility: hidden;
 }
 
 body.menu-expanded .menu,
@@ -249,10 +247,6 @@ body.menu-expanded .menu{
 
     transition: transform 300ms;
     transform: translateY(0);
-}
-
-body.menu-expanded nav{
-    position: relative;
 }
 
 .menu ul:nth-child(1){
@@ -356,3 +350,6 @@ body.menu-expanded button path{
 #services .card h3{
     margin-block: 1.6rem;
 }
+
+/* ABOUT */
+
