@@ -11,6 +11,7 @@
     --brand-beige: hsl(39, 100%, 97%);
     --brand--light: hsl(148, 23%, 89%);
     --bg-light: hsl(180, 14%, 97%);
+    --brand-green-hover: hsl(170, 100%, 14%);
 
     font-size: 62.5%;
 
@@ -90,6 +91,37 @@ section .content p {
     color: var(--paragraph);
 }
 
+.button{
+    background: var(--primary-color);
+    color: white;
+
+    border: none;
+    border-radius: 4rem;
+
+    margin-bottom: 6.0rem;
+
+    padding: 1.6rem 3.2rem;
+    width: fit-content;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.button:hover{
+    background: var(--brand-green-hover);
+}
+
 /* Home */
 
 #home {
@@ -112,6 +144,10 @@ section .content p {
     z-index: -1;
 }
 
+#home .button{
+    margin-inline: auto;
+}
+
 #home p {
     font-size: 1.8rem;
 
@@ -121,32 +157,6 @@ section .content p {
     color: var(--paragraph);
 
     margin-bottom: 3.2rem;
-}
-
-#home button {
-    background: var(--primary-color);
-    color: white;
-
-    border: none;
-    border-radius: 4rem;
-
-    margin-bottom: 6.0rem;
-
-    height: 6.2rem;
-    width: 26.3rem;
-
-    font-size: 1.4rem;
-    font-weight: 700;
-
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.6rem;
-
-    margin-right: auto;
-    margin-left: auto;
 }
 
 #home img {
@@ -370,4 +380,28 @@ body.menu-expanded button path {
 #about .content p{
     margin-top: 2.4rem;
     margin-bottom: 6rem;
+}
+
+/* Contact */
+
+#contact{
+    text-align: left;
+}
+
+#contact header{
+    margin-bottom: 3.2rem;
+}
+
+#contact ul{
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.6rem;
+}
+
+#contact ul li{
+    display: flex;
+    align-items: center;
+
+    gap: .8rem;
 }
