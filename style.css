@@ -91,7 +91,7 @@ section .content p {
     color: var(--paragraph);
 }
 
-.button{
+.button {
     background: var(--primary-color);
     color: white;
 
@@ -114,11 +114,12 @@ section .content p {
     gap: 1.6rem;
 
     text-decoration: none;
+    text-transform: uppercase;
 
     transition: .3s;
 }
 
-.button:hover{
+.button:hover {
     background: var(--brand-green-hover);
 }
 
@@ -144,7 +145,7 @@ section .content p {
     z-index: -1;
 }
 
-#home .button{
+#home .button {
     margin-inline: auto;
 }
 
@@ -317,6 +318,13 @@ body.menu-expanded .menu {
     padding: 1.6rem 3.2rem;
 }
 
+.menu .button:hover{
+    background-color: var(--primary-color);
+    color: white;
+
+    filter: brightness(1.1);
+}
+
 .social-links {
     display: flex;
     gap: 3.2rem;
@@ -377,31 +385,92 @@ body.menu-expanded button path {
     margin-bottom: 2.4rem;
 }
 
-#about .content p{
+#about .content p {
     margin-top: 2.4rem;
     margin-bottom: 6rem;
 }
 
 /* Contact */
 
-#contact{
+#contact {
     text-align: left;
 }
 
-#contact header{
+#contact header {
     margin-bottom: 3.2rem;
 }
 
-#contact ul{
+#contact ul {
     display: flex;
     flex-direction: column;
 
     gap: 1.6rem;
+
+    margin-bottom: 3.2rem;
 }
 
-#contact ul li{
+#contact ul li {
     display: flex;
     align-items: center;
 
     gap: .8rem;
+}
+
+/* Footer */
+
+footer {
+    background-color: var(--primary-color);
+    padding-block: 6rem;
+
+    text-align: left;
+
+    color: white;
+}
+
+footer .logo {
+    display: inline-block;
+    margin-bottom: 2.4rem;
+}
+
+footer .logo svg {
+    width: 23.6rem;
+    height: 3.1rem;
+}
+
+footer .logo path {
+    fill: white;
+}
+
+footer p {
+    color: var(--brand-beige);
+
+    line-height: 2;
+    margin-bottom: 3.2rem;
+}
+
+footer .social-links {
+    justify-content: flex-start;
+}
+
+/* Back to top */
+
+#backToTopButton {
+    position: fixed;
+
+    bottom: 1rem;
+    right: 2.5rem;
+
+    opacity: 0;
+    visibility: hidden;
+
+
+    transform: translateY(100%);
+    transition: .2s;
+}
+
+#backToTopButton.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0%);
 }

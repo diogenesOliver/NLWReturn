@@ -1,15 +1,27 @@
 let navigation = document.getElementById('navigation')
 let openMenu = document.getElementById('openMenu')
 let closeMenu = document.getElementById('closeMenu')
+let backToTopButton = document.getElementById('backToTopButton')
 
 function onScroll() {
+    showNavOnScroll()
+    showBackTOTopButtonOnScroll()
+}
 
+function showBackTOTopButtonOnScroll(){
+    if (scrollY > 500) {
+        backToTopButton.classList.add('show')
+    } else{
+        backToTopButton.classList.remove('show')
+    }
+}
+
+function showNavOnScroll(){
     if (scrollY > 0) {
         navigation.classList.add('scroll')
     } else{
         navigation.classList.remove('scroll')
     }
-
 }
 
 openMenu.addEventListener('click', () => {
