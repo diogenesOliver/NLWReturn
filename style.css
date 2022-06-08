@@ -10,8 +10,10 @@
     --paragraph: #495057;
     --brand-beige: hsl(39, 100%, 97%);
     --brand--light: hsl(148, 23%, 89%);
+    --brand--light-2: hsl(180, 14%, 97%);
     --bg-light: hsl(180, 14%, 97%);
     --brand-green-hover: hsl(170, 100%, 14%);
+
 
     font-size: 62.5%;
 
@@ -478,6 +480,8 @@ footer .social-links {
     transform: translateY(0%);
 }
 
+/* RESPOSIVIDADE */
+
 @media (min-width: 1024px){
 
     /* Geral */
@@ -546,7 +550,7 @@ footer .social-links {
     }
 
     nav#navigation.scroll .menu ul li a{
-        color: var(--brand--light);
+        color: var(--brand--light-2);
         opacity: .6;
 
     }
@@ -556,8 +560,42 @@ footer .social-links {
         color: white;
     }
 
+    bav#navigation .menu li a{
+        transition: opacity .4s;
+    }
+
     nav#navigation .menu li a:hover{
         opacity: 1;
         font-weight: 700;
+    }
+
+    nav#navigation .menu li a::after{
+        content: '';
+
+        width: 0%;
+        height: 2px;
+
+        background-color: var(--primary-color);
+
+        position: relative;
+        bottom: -2rem;
+
+        display: block;
+
+        transition: width .2s;
+    }
+
+    nav#navigation.scroll .menu li a::after{
+        background-color: white;
+    }
+
+    nav#navigation li a:hover::after{
+        width: 100%;
+
+        padding-inline: -0.8rem;
+    }
+
+    nav#navigation.scroll .menu li a:hover{
+        opacity: 1;
     }
 }
