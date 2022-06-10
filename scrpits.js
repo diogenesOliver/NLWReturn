@@ -6,6 +6,12 @@ let backToTopButton = document.getElementById('backToTopButton')
 function onScroll() {
     showNavOnScroll()
     showBackTOTopButtonOnScroll()
+
+    activateMenuAtCurrentSection()
+}
+
+function activateMenuAtCurrentSection(){
+    const targetLine = scrollY + innerHeight / 2
 }
 
 function showBackTOTopButtonOnScroll(){
