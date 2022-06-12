@@ -12,6 +12,13 @@ function onScroll() {
 
 function activateMenuAtCurrentSection(){
     const targetLine = scrollY + innerHeight / 2
+
+    const sectionTop = home.offsetTop
+    const sectionHeight = home.offsetHeight
+    
+    const sectionTopReachOrPassedTargetLine = targetLine >= sectionTop
+
+    console.log(sectionTopReachOrPassedTargetLine)
 }
 
 function showBackTOTopButtonOnScroll(){
